@@ -1,5 +1,10 @@
 import { SafeArea } from "./safe-area";
+import { TRPCProvider } from "./trpc";
 
 export function Provider({ children }: { children: React.ReactNode }) {
-  return <SafeArea>{children}</SafeArea>;
+  return (
+    <SafeArea>
+      <TRPCProvider>{children}</TRPCProvider>
+    </SafeArea>
+  );
 }
