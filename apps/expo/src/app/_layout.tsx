@@ -1,6 +1,8 @@
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 
+import { Provider } from "@acme/app/src/provider";
+
 import { TRPCProvider } from "~/utils/api";
 
 import "../styles.css";
@@ -14,13 +16,15 @@ export default function RootLayout() {
           The Stack component displays the current page.
           It also allows you to configure your screens 
         */}
-      <Stack
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: "#f472b6",
-          },
-        }}
-      />
+      <Provider>
+        <Stack
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: "#f472b6",
+            },
+          }}
+        />
+      </Provider>
       <StatusBar />
     </TRPCProvider>
   );

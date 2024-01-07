@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 
+import { Provider } from "@acme/app/src/provider";
+import { StylesProvider } from "@acme/app/src/styles-provider";
 import { cn } from "@acme/ui";
 import { ThemeProvider, ThemeToggle } from "@acme/ui/theme";
 import { Toaster } from "@acme/ui/toast";
@@ -12,6 +14,7 @@ import { env } from "~/env";
 import { TRPCReactProvider } from "~/trpc/react";
 
 import "~/app/globals.css";
+import "@acme/app/src/reset.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -55,7 +58,9 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TRPCReactProvider headersPromise={getHeaders()}>
-            {props.children}
+            <Provider>
+              <StylesProvider>{props.children}</StylesProvider>
+            </Provider>
           </TRPCReactProvider>
           <div className="absolute bottom-4 right-4">
             <ThemeToggle />
