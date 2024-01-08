@@ -18,9 +18,11 @@
     "@trpc/react-query": "next",
     "@trpc/server": "next",
     "moti": "^0.27.2",
+    "nativewind": "^4.0.22",
     "solito": "^4.2.0"
   },
   "devDependencies": {
+    "@acme/api": "workspace:^0.1.0",
     "@acme/eslint-config": "workspace:^0.2.0",
     "@acme/prettier-config": "workspace:^0.1.0",
     "@acme/tailwind-config": "workspace:^0.1.0",
